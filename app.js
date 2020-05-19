@@ -2,6 +2,7 @@ const logger = require("./logger");
 const path = require("path");
 const os = require("os");
 const fs = require("fs");
+const EventEmitter = require("events");
 
 //module export
 // logger("hello");
@@ -37,3 +38,40 @@ const fs = require("fs");
 //   if (err) console.log(`error is :${err}`);
 //   else console.log(`result is : ${files}`);
 // });
+
+// // events
+// const emitter = new EventEmitter();
+
+// //Register the event
+// emitter.on("messageRaised", function(arg) {
+//   console.log(`listening started! name: ${arg.name} age: ${arg.age}`);
+// });
+// //Raise an event
+// emitter.emit("messageRaised", { name: "John", age: 32 });
+
+// emitter.on("messageRaised2", function() {
+//   console.log(`listening to messageRaised2`);
+// });
+
+// emitter.emit("messageRaised2");
+
+// const eventNames = emitter.eventNames();
+
+// console.log(`eventNames: ${eventNames}`);
+
+// //testing events with object in the Logger file
+// emitter.on("Transmitted", function() {
+//   console.log(`listening started!`);
+// });
+
+// logger("logging");
+
+//Events Logger Class
+const Logger = require("./logger");
+const loggerobj = new Logger();
+
+loggerobj.on("Transmitted", args => {
+  console.log(`values are ${args.day} , ${args.month}`);
+});
+
+loggerobj.log("new Message - Events Logger Class");
