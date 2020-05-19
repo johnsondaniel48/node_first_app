@@ -75,3 +75,4 @@ loggerobj.on("Transmitted", args => {
 });
 
 loggerobj.log("new Message - Events Logger Class");
+loggerobj.log("new Message - Events Logger Class");
