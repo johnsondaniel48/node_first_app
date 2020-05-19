@@ -67,12 +67,23 @@ const EventEmitter = require("events");
 // logger("logging");
 
 //Events Logger Class
-const Logger = require("./logger");
-const loggerobj = new Logger();
+// const Logger = require("./logger");
+// const loggerobj = new Logger();
 
-loggerobj.on("Transmitted", args => {
-  console.log(`values are ${args.day} , ${args.month}`);
+// loggerobj.on("Transmitted", args => {
+//   console.log(`values are ${args.day} , ${args.month}`);
+// });
+
+// loggerobj.log("new Message - Events Logger Class");
+
+//http - create server
+const http = require("http");
+const server = http.createServer();
+
+server.on("connection", socket => {
+  console.log("new connection");
 });
 
-loggerobj.log("new Message - Events Logger Class");
-loggerobj.log("new Message - Events Logger Class");
+server.listen(3302);
+
+console.log("listening on port 3000");
